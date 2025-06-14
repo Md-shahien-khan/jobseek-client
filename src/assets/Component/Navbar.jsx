@@ -43,7 +43,7 @@ const Navbar = () => {
       <div className="navbar-end">
         {
           user ? <>
-          <button  onClick={handleSignOut}>Sign Out</button>
+          <button className='border-blue-700 border-2 p-2 rounded-xl hover:bg-blue-700 hover:text-white' onClick={handleSignOut}>Sign Out</button>
           </> : <>
            <Link to="/register">Sign Up</Link>
            <Link to="/signIn" className="btn">Sign In</Link>

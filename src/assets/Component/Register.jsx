@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import AuthContext from "../../context/AuthContext/AuthContext";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [passwordError, setPasswordError] = useState("");
+  const {createUser} = useContext(AuthContext);
 
   const togglePassword = () => {
     setShowPassword(!showPassword);
@@ -12,8 +14,23 @@ const Register = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
-
+    const firstName =  form.firstName.value;
+    const lastName =  form.lastName.value;
+    const email = form.email.value;
     const password = form.password.value;
+    const photoUrl = form.photoUrl.value;
+    const phoneNumber = form.phoneNumber.value;
+    const nationality = form.nationality.value;
+    console.log(email, password);
+
+    
+    createUser(email, password)
+      .then(result =>{
+        console.log(result.user);
+      })
+      .catch(error =>{
+        console.log(error.message);
+      })
 
     const passwordValid =
       /[A-Z]/.test(password) &&
@@ -29,18 +46,6 @@ const Register = () => {
 
     setPasswordError(""); // Clear error if validation passes
 
-    const formData = {
-      firstName: form.firstName.value,
-      lastName: form.lastName.value,
-      email: form.email.value,
-      password,
-      photoUrl: form.photoUrl.value,
-      phoneNumber: form.phoneNumber.value,
-      nationality: form.nationality.value,
-    };
-
-    console.log("Form Data:", formData);
-    // You can send formData to your API here
   };
 
   return (

@@ -3,6 +3,8 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 import AuthContext from "../../context/AuthContext/AuthContext";
 import loginLottieJson from '../Lottie/login.json'
 import Lottie from "lottie-react";
+import SocialLogin from "./SocialLogin";
+import { Link } from "react-router-dom";
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -85,6 +87,11 @@ const SignIn = () => {
         >
           Sign In
         </button>
+        {/* google sign in */}
+        <div className="">
+          <SocialLogin></SocialLogin>
+        </div>
+        <p>Don't have an account? Please <Link to='/register' className="text-blue-700 font-bold">Sign Up</Link></p>
       </form>
     </div>
   );

@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import AuthContext from "../../context/AuthContext/AuthContext";
+import SocialLogin from "./SocialLogin";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -167,6 +169,11 @@ const Register = () => {
         >
           Register
         </button>
+        {/* Google sign up */}
+        <div className="">
+            <SocialLogin></SocialLogin>
+        </div>
+        <p>Already have an account? Please<Link to='/signIn' className="text-blue-700 font-bold">Sign In</Link></p>
       </form>
     </div>
   );

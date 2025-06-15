@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import bannerImg from '../img/banner2.jpg'
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
   return (
@@ -16,6 +17,7 @@ const Banner = () => {
           <p className="text-lg md:text-xl">
             Explore thousands of job listings tailored to your skills and goals. Let us help you get hired faster.
           </p>
+          <Link><button className='btn bg-blue-700 text-white mt-4 hover:bg-blue-400'>Explore jobs</button></Link>
         </motion.div>
       </div>
     </div>

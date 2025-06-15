@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext/AuthContext';
 
 const Navbar = () => {
@@ -15,10 +15,10 @@ const Navbar = () => {
       })
   }
   const links = <>
-    <li><a>Home</a></li>
-    <li><a>About</a></li>
-    <li><a>Jobs</a></li>
-    <li><a>Contact</a></li>
+    <NavLink to='/'><li><a>Home</a></li></NavLink>
+    <NavLink to='/'><li><a>About</a></li></NavLink>
+    <NavLink to='/'><li><a>Jobs</a></li></NavLink>
+    <NavLink to='/'><li><a>Contact</a></li></NavLink>
   </>
   return (
     <div className="navbar bg-base-100 shadow-sm">
@@ -33,7 +33,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-xl text-blue-700">JobSeek</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">

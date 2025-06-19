@@ -11,8 +11,7 @@ const SocialLogin = () => {
     <div className="mt-4 text-center">
       <button
         onClick={handleGoogleSignIn}
-        className="flex items-center justify-center gap-2 w-full border border-gray-300 py-2 rounded-lg hover:bg-gray-100 transition"
-      >
+        className="flex items-center justify-center gap-2 w-full border border-gray-300 py-2 rounded-lg hover:bg-gray-100 transition">
         <FcGoogle className="text-xl" />
         <span className="text-sm font-medium">Continue with Google</span>
       </button>

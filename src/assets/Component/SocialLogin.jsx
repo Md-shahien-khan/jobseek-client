@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
+import AuthContext from "../../context/AuthContext/AuthContext";
 
 const SocialLogin = () => {
+  const {signInWithGoogle} = useContext(AuthContext);
   const handleGoogleSignIn = () => {
-    // Your Google sign-in logic here
-    console.log("Google Sign In clicked");
+    signInWithGoogle()
+      .then(result =>{
+        console.log(result.user)
+      })
+      .catch(error =>{
+        console.log(error.message)
+      })
   };
 
   return (

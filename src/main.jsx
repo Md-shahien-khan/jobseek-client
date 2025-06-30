@@ -13,6 +13,9 @@ import AuthProvider from './context/AuthContext/AuthProvider.jsx';
 import SignIn from './assets/Component/SignIn.jsx';
 import JobDetails from './assets/Component/JobDetails.jsx';
 import PrivateRoute from './assets/Component/PrivateRoute.jsx';
+// import Dashboard from './assets/Component/Dashboard.jsx';
+import CreateJobForm from './assets/Component/CreateJobForm.jsx';
+import JobApply from './assets/Component/JobApply.jsx';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +40,14 @@ const router = createBrowserRouter([
       path : '/signIn',
       element : <SignIn></SignIn>
     },
+    {
+      path : '/createJob',
+      element : <CreateJobForm></CreateJobForm>
+    },
+    {
+      path : '/jobApply/:id',
+      element : <PrivateRoute><JobApply></JobApply></PrivateRoute>
+    }
   ]
   },
 ]);

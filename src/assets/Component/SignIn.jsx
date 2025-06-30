@@ -4,12 +4,16 @@ import AuthContext from "../../context/AuthContext/AuthContext";
 import loginLottieJson from '../Lottie/login.json'
 import Lottie from "lottie-react";
 import SocialLogin from "./SocialLogin";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [signInError, setSignInError] = useState("");
   const {signInUser} = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  console.log('in sign in page : ',location);
+  const from = location.state || '/';
 
   const togglePassword = () => {
     setShowPassword(!showPassword);
@@ -27,6 +31,7 @@ const SignIn = () => {
       .then((result) => {
         console.log("Logged in user:", result.user);
         // Redirect or show success if needed
+        navigate(from);
       })
       .catch((error) => {
         console.error(error.message);

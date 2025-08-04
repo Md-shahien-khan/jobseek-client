@@ -1,12 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import UseAuth from './UseAuth';
 import Swal from 'sweetalert2';
 
 const JobApply = () => {
     const {id} = useParams();
     const {user} = UseAuth();
+    const navigate = useNavigate();
 
     console.log(id, user);
 
@@ -56,6 +57,7 @@ const JobApply = () => {
               confirmButtonText: 'OK'
             });
             form.reset(); 
+            navigate('/myApplications')
           }
         });
 

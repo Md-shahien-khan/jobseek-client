@@ -27,7 +27,7 @@ const MyApplications = () => {
                                 <th className="py-2 px-4 border">Title</th>
                                 <th className="py-2 px-4 border">Company</th>
                                 <th className="py-2 px-4 border">Location</th>
-                                <th className="py-2 px-4 border">Salary</th>
+                                {/* <th className="py-2 px-4 border">Salary</th> */}
                                 <th className="py-2 px-4 border">Type</th>
                                 <th className="py-2 px-4 border">Applied Email</th>
                             </tr>
@@ -38,8 +38,8 @@ const MyApplications = () => {
                                     <td className="py-2 px-4 border">{job.title}</td>
                                     <td className="py-2 px-4 border">{job.company}</td>
                                     <td className="py-2 px-4 border">{job.location}</td>
-                                    <td className="py-2 px-4 border">{job.salary}</td>
-                                    <td className="py-2 px-4 border">{job.type}</td>
+                                    {/* <td className="py-2 px-4 border">{job.salary}</td> */}
+                                    <td className="py-2 px-4 border">{job.jobType}</td>
                                     <td className="py-2 px-4 border">{job.applicant_email}</td>
                                 </tr>
                             ))}

@@ -17,6 +17,7 @@ import PrivateRoute from './assets/Component/PrivateRoute.jsx';
 import CreateJobForm from './assets/Component/CreateJobForm.jsx';
 import JobApply from './assets/Component/JobApply.jsx';
 import MyApplications from './assets/Component/MyApplications.jsx';
+import AddJob from './assets/Component/AddJob.jsx';
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
     {
       path : '/myApplications',
       element : <PrivateRoute><MyApplications></MyApplications></PrivateRoute>
+    },
+    {
+      path : '/addAJob',
+      element : <PrivateRoute><AddJob></AddJob></PrivateRoute>
     }
   ]
   },

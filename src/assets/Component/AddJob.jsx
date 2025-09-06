@@ -1,13 +1,45 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import UseAuth from "./UseAuth";
 
 const AddJob = () => {
+  const navigate = useNavigate();
+  const {user} = UseAuth();
   // collect form data
   const handleAddJob = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const initialData = Object.fromEntries(formData.entries());
-    console.log(initialData)
+    console.log(initialData);
+    const {min, max, ...newJob} = initialData;
+    console.log(initialData);
+    newJob.salaryRange = {min, max}
+    console.log(newJob); //it will show data like salary range, inside u will see min and max
+    newJob.requirements = newJob.requirements.split('\n'); // it will split all the requirements in array
+    newJob.responsibilities = newJob.responsibilities.split('\n')
+    console.log(newJob);
 
+
+    // posting job to backend
+    fetch('http://localhost:3000/jobs', {
+      method : 'POST',
+      headers : {
+        'content-type' : 'application/json'
+      },
+      body : JSON.stringify(newJob)
+    })
+    .then(res => res.json())
+    .then(data =>{
+      if(data.insertedId){
+        Swal.fire({
+        title: "Job Posted Succesfully",
+        icon: "success",
+        draggable: true
+      });
+      navigate('/myPostedJobs')
+      }
+    })
   };
 
   return (
@@ -86,6 +118,7 @@ const AddJob = () => {
         {/* HR Email */}
         <input
           type="email"
+          defaultValue={user.email}
           name="hr_email"
           placeholder="HR Email"
           className="border p-2 rounded-lg w-full"

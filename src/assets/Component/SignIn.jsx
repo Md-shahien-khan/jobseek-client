@@ -5,6 +5,7 @@ import loginLottieJson from '../Lottie/login.json'
 import Lottie from "lottie-react";
 import SocialLogin from "./SocialLogin";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -29,9 +30,14 @@ const SignIn = () => {
 
     signInUser(email, password)
       .then((result) => {
-        console.log("Logged in user:", result.user);
+        console.log("Logged in user:", result.user.email);
         // Redirect or show success if needed
-        navigate(from);
+        // navigate(from);
+        const user = {email : email}
+        axios.post('http://localhost:3000/jwt', user)
+        .then(res =>{
+          console.log(res.data);
+        })
       })
       .catch((error) => {
         console.error(error.message);
